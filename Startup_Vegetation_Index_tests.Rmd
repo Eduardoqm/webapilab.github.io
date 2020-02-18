@@ -1,5 +1,5 @@
 ---
-title: "Startup Vegetation Index"
+title: "Sitio Nova Jerusalem"
 author: "Por: Eduardo Q Marques"
 output: 
   html_document:
@@ -54,7 +54,7 @@ nj = leaflet() %>%
             title = "NDVI")
 ```
 
-## Sitio Nova Jerusalem {.tabset .tabset-fade .tabset-pills}
+## {.tabset .tabset-fade .tabset-pills}
 
 ### Mapa
 ```{r pressure, echo=FALSE, fig.height=5, fig.width=9}
