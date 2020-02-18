@@ -1,0 +1,57 @@
+---
+title: "Startup Vegetation Index tests"
+author: "Por: Eduardo Q Marques"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#startup vegetation index to agriculture V2
+#By: Eduardo Q Marques 17-02-2020
+
+library(raster)
+library(ggplot2)
+library(rasterVis)
+library(plotly)
+library(viridis)
+library(rgdal)
+library(leaflet)
+
+#Open satellite data
+nj <- stack(list.files(path="C:\\Users\\Eduardo Q Marques\\Documents\\My Jobs\\EQMapas\\Nova Jerusalem", pattern = ".tif$", full.names=TRUE,recursive=TRUE))
+
+#Open limit of farm
+limit = readOGR(dsn = "C:\\Users\\Eduardo Q Marques\\Documents\\My Jobs\\Programas\\Startup-Vegetation-Index\\Vector",layer="Limite_nj")
+
+#Calculate vegetation indexes========
+#NDVI
+ndvi = (nj[[7]]-nj[[6]])/(nj[[7]]+nj[[6]])
+
+#Crop index for the limits ======
+limit = spTransform(limit, crs(ndvi))
+
+ndvi = crop(ndvi, limit)
+ndvi = mask(ndvi, limit)
+
+#Make Map
+paleta <- colorNumeric("viridis", domain = ndvi@data@values, na.color = "transparent", reverse = TRUE)
+
+#paleta <- colorBin("viridis", bins = 10, domain = ndvi@data@values, na.color = "transparent", reverse = TRUE)
+
+
+nj = leaflet() %>% 
+  addTiles() %>% 
+  setView( lng = -51.824008, lat = -14.032999, zoom = 15 ) %>% 
+  addProviderTiles("Esri.WorldImagery") %>% 
+  addRasterImage(ndvi, colors = paleta, opacity = .8) %>% 
+  addLegend(pal = paleta, 
+            values = ndvi@data@values, 
+            title = "NDVI")
+```
+
+
+## Sitio Nova Jerusalem
+
+```{r pressure, echo=FALSE, fig.height=5, fig.width=9}
+nj
+```
+
