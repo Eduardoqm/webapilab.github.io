@@ -1,7 +1,9 @@
 ---
-title: "Startup Vegetation Index tests"
+title: "Startup Vegetation Index"
 author: "Por: Eduardo Q Marques"
-output: html_document
+output: 
+  html_document:
+    theme: flatly
 ---
 
 ```{r setup, include=FALSE}
@@ -11,7 +13,6 @@ output: html_document
 library(raster)
 library(ggplot2)
 library(rasterVis)
-library(plotly)
 library(viridis)
 library(rgdal)
 library(leaflet)
@@ -32,6 +33,11 @@ limit = spTransform(limit, crs(ndvi))
 ndvi = crop(ndvi, limit)
 ndvi = mask(ndvi, limit)
 
+#Extract Data Frame
+ndvi2  <-  rasterToPoints(ndvi)
+ndvi3 <-  data.frame(ndvi2)
+colnames(ndvi3) = c("Long", "Lat", "NDVI")
+
 #Make Map
 paleta <- colorNumeric("viridis", domain = ndvi@data@values, na.color = "transparent", reverse = TRUE)
 
@@ -48,10 +54,17 @@ nj = leaflet() %>%
             title = "NDVI")
 ```
 
+## Sitio Nova Jerusalem {.tabset .tabset-fade .tabset-pills}
 
-## Sitio Nova Jerusalem
-
+### Mapa
 ```{r pressure, echo=FALSE, fig.height=5, fig.width=9}
 nj
 ```
+
+### Resumo
+```{r, echo=FALSE, results = 'asis'}
+knitr::kable(summary(ndvi3))
+```
+
+
 
