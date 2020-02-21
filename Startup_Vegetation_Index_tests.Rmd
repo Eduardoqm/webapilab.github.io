@@ -15,6 +15,7 @@ library(ggplot2)
 library(rasterVis)
 library(viridis)
 library(rgdal)
+library(rayshader)
 library(leaflet)
 
 #Open satellite data
@@ -52,13 +53,24 @@ nj = leaflet() %>%
   addLegend(pal = paleta, 
             values = ndvi@data@values, 
             title = "NDVI")
+
+gg_ndvi = ggplot(ndvi3, aes(Long,Lat)) +
+  geom_raster(aes(fill = NDVI)) +
+  scale_fill_gradientn("NDVI", colours = rev(viridis(6))) +
+  theme_minimal()+
+  theme(plot.title = element_text(hjust=0, size=rel(1.2)))
 ```
 
 ## {.tabset .tabset-fade .tabset-pills}
 
-### Mapa
+### NDVI
 ```{r pressure, echo=FALSE, fig.height=5, fig.width=9}
 nj
+```
+
+### NDVI 3D
+```{r, echo=FALSE, fig.height=5, fig.width=9}
+plot_gg(gg_ndvi, multicore = TRUE, raytrace = TRUE, scale = 50, windowsize = c(900, 600), zoom = 0.6, width = 5.5, height=3.3, phi = 50, theta = 30, preview = TRUE)
 ```
 
 ### Resumo
