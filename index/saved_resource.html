@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)http://127.0.0.1:4222/app1fae6afc116047c7f60497cf32b988a0/?w=&__subapp__=1 -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[1.12.4];shiny[1.3.2];ionrangeslider[2.1.6];strftime[0.9.2];bootstrap[3.3.7]</script>
+<script src="./json2-min.js(1).transferir"></script>
+<script src="./jquery.min.js(1).transferir"></script>
+<link href="./shiny(1).css" rel="stylesheet">
+<script src="./shiny.min.js(1).transferir"></script>
+<link href="./ion.rangeSlider(1).css" rel="stylesheet">
+<link href="./ion.rangeSlider.skinShiny(1).css" rel="stylesheet">
+<script src="./ion.rangeSlider.min.js(1).transferir"></script>
+<script src="./strftime-min.js(1).transferir"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="./bootstrap.min(1).css" rel="stylesheet">
+<script src="./bootstrap.min.js(1).transferir"></script>
+<script src="./html5shiv.min.js(1).transferir"></script>
+<script src="./respond.min.js(1).transferir"></script>  <title>Tabsets</title>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h2>Tabsets</h2>
+    <div class="row">
+      <div class="col-sm-4">
+        <form class="well">
+          <div id="dist" class="form-group shiny-input-radiogroup shiny-input-container shiny-bound-input">
+            <label class="control-label" for="dist">Distribution type:</label>
+            <div class="shiny-options-group">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="dist" value="norm" checked="checked">
+                  <span>Normal</span>
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="dist" value="unif">
+                  <span>Uniform</span>
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="dist" value="lnorm">
+                  <span>Log-normal</span>
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="dist" value="exp">
+                  <span>Exponential</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="n">Number of observations:</label>
+            <span class="irs js-irs-0  irs-with-grid"><span class="irs"><span class="irs-line" tabindex="0"><span class="irs-line-left"></span><span class="irs-line-mid"></span><span class="irs-line-right"></span></span><span class="irs-min" style="visibility: visible;">1</span><span class="irs-max" style="visibility: visible;">1,000</span><span class="irs-from" style="visibility: hidden;">0</span><span class="irs-to" style="visibility: hidden;">0</span><span class="irs-single" style="left: 44.8045%;">500</span></span><span class="irs-grid" style="width: 90.5579%; left: 4.62103%;"><span class="irs-grid-pol" style="left: 0%"></span><span class="irs-grid-text js-grid-text-0" style="left: 0%; margin-left: -2.36052%;">1</span><span class="irs-grid-pol small" style="left: 6.673340006673341%"></span><span class="irs-grid-pol small" style="left: 3.3366700033366703%"></span><span class="irs-grid-pol" style="left: 10.01001001001001%"></span><span class="irs-grid-text js-grid-text-1" style="left: 10.01%; visibility: visible; margin-left: -4.50644%;">101</span><span class="irs-grid-pol small" style="left: 16.68335001668335%"></span><span class="irs-grid-pol small" style="left: 13.346680013346681%"></span><span class="irs-grid-pol" style="left: 20.02002002002002%"></span><span class="irs-grid-text js-grid-text-2" style="left: 20.02%; visibility: visible; margin-left: -4.50644%;">201</span><span class="irs-grid-pol small" style="left: 26.69336002669336%"></span><span class="irs-grid-pol small" style="left: 23.35669002335669%"></span><span class="irs-grid-pol" style="left: 30.03003003003003%"></span><span class="irs-grid-text js-grid-text-3" style="left: 30.03%; visibility: visible; margin-left: -4.50644%;">301</span><span class="irs-grid-pol small" style="left: 36.70337003670337%"></span><span class="irs-grid-pol small" style="left: 33.3667000333667%"></span><span class="irs-grid-pol" style="left: 40.04004004004004%"></span><span class="irs-grid-text js-grid-text-4" style="left: 40.04%; margin-left: -4.50644%;">401</span><span class="irs-grid-pol small" style="left: 46.713380046713375%"></span><span class="irs-grid-pol small" style="left: 43.37671004337671%"></span><span class="irs-grid-pol" style="left: 50.05005005005005%"></span><span class="irs-grid-text js-grid-text-5" style="left: 50.0501%; visibility: visible; margin-left: -4.50644%;">501</span><span class="irs-grid-pol small" style="left: 56.72339005672339%"></span><span class="irs-grid-pol small" style="left: 53.38672005338672%"></span><span class="irs-grid-pol" style="left: 60.06006006006006%"></span><span class="irs-grid-text js-grid-text-6" style="left: 60.0601%; visibility: visible; margin-left: -4.50644%;">601</span><span class="irs-grid-pol small" style="left: 66.7334000667334%"></span><span class="irs-grid-pol small" style="left: 63.39673006339673%"></span><span class="irs-grid-pol" style="left: 70.07007007007007%"></span><span class="irs-grid-text js-grid-text-7" style="left: 70.0701%; visibility: visible; margin-left: -4.50644%;">701</span><span class="irs-grid-pol small" style="left: 76.74341007674342%"></span><span class="irs-grid-pol small" style="left: 73.40674007340674%"></span><span class="irs-grid-pol" style="left: 80.08008008008008%"></span><span class="irs-grid-text js-grid-text-8" style="left: 80.0801%; margin-left: -4.50644%;">801</span><span class="irs-grid-pol small" style="left: 86.75342008675342%"></span><span class="irs-grid-pol small" style="left: 83.41675008341674%"></span><span class="irs-grid-pol" style="left: 90.09009009009009%"></span><span class="irs-grid-text js-grid-text-9" style="left: 90.0901%; visibility: visible; margin-left: -4.50644%;">901</span><span class="irs-grid-pol small" style="left: 96.69669669669669%"></span><span class="irs-grid-pol small" style="left: 93.3933933933934%"></span><span class="irs-grid-pol" style="left: 100%"></span><span class="irs-grid-text js-grid-text-10" style="left: 100%; visibility: visible; margin-left: -6.22318%;">1,000</span></span><span class="irs-bar" style="left: 4.72103%; width: 45.2336%;"></span><span class="irs-bar-edge"></span><span class="irs-shadow shadow-single" style="display: none;"></span><span class="irs-slider single" style="left: 45.2336%;"></span></span><input class="js-range-slider irs-hidden-input shiny-bound-input" id="n" data-min="1" data-max="1000" data-from="500" data-step="1" data-grid="true" data-grid-num="9.99" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number" tabindex="-1" readonly="">
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-8">
+        <div class="tabbable">
+          <ul class="nav nav-tabs" data-tabsetid="8341">
+            <li class="active">
+              <a href="http://127.0.0.1:4222/app1fae6afc116047c7f60497cf32b988a0/?w=&amp;__subapp__=1#tab-8341-1" data-toggle="tab" data-value="Plot">Plot</a>
+            </li>
+            <li>
+              <a href="http://127.0.0.1:4222/app1fae6afc116047c7f60497cf32b988a0/?w=&amp;__subapp__=1#tab-8341-2" data-toggle="tab" data-value="Summary">Summary</a>
+            </li>
+            <li>
+              <a href="http://127.0.0.1:4222/app1fae6afc116047c7f60497cf32b988a0/?w=&amp;__subapp__=1#tab-8341-3" data-toggle="tab" data-value="Table">Table</a>
+            </li>
+          </ul>
+          <div class="tab-content" data-tabsetid="8341">
+            <div class="tab-pane active" data-value="Plot" id="tab-8341-1">
+              <div id="plot" class="shiny-plot-output shiny-bound-output" style="width: 100% ; height: 400px"><img src="data:image/png;base64,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" width="577" height="400"></div>
+            </div>
+            <div class="tab-pane" data-value="Summary" id="tab-8341-2">
+              <pre id="summary" class="shiny-text-output noplaceholder shiny-bound-output"></pre>
+            </div>
+            <div class="tab-pane" data-value="Table" id="tab-8341-3">
+              <div id="table" class="shiny-html-output shiny-bound-output"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>
