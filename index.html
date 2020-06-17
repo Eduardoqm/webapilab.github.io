@@ -1,158 +1,104 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Errando!</title>
-  <style>
-    h1 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgba(69, 148, 194);
-    text-align: center;
-    font-size: 90px;
-    background-color: rgba(255, 255, 255, 0.65);
-    }
+<html>
+<head>
+    <meta charset="UTF-8"/>
 
-    .about {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
-    background-color: rgba(69, 148, 194);
-    }
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    p {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 17px;
-    }
+    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    body {
-    background-image: url('brick.jpg');
-    }
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #000000;
+            overflow: hidden;
+		}
+        #canvasArea {
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
 
-    .frase {
-    color: black;
-    text-align: center;
-    font-size: 15px;
-    margin: auto;
-    width: 400px;
-    }
+        
+	</style>
+    <!-- Libs and GDJS core files : -->
+		<script src="libs\jshashtable.js" crossorigin="anonymous"></script>
+	<script src="gd.js" crossorigin="anonymous"></script>
+	<script src="gd-splash-image.js" crossorigin="anonymous"></script>
+	<script src="libs\hshg.js" crossorigin="anonymous"></script>
+	<script src="libs\rbush.js" crossorigin="anonymous"></script>
+	<script src="inputmanager.js" crossorigin="anonymous"></script>
+	<script src="jsonmanager.js" crossorigin="anonymous"></script>
+	<script src="timemanager.js" crossorigin="anonymous"></script>
+	<script src="runtimeobject.js" crossorigin="anonymous"></script>
+	<script src="profiler.js" crossorigin="anonymous"></script>
+	<script src="runtimescene.js" crossorigin="anonymous"></script>
+	<script src="scenestack.js" crossorigin="anonymous"></script>
+	<script src="polygon.js" crossorigin="anonymous"></script>
+	<script src="force.js" crossorigin="anonymous"></script>
+	<script src="layer.js" crossorigin="anonymous"></script>
+	<script src="timer.js" crossorigin="anonymous"></script>
+	<script src="runtimegame.js" crossorigin="anonymous"></script>
+	<script src="variable.js" crossorigin="anonymous"></script>
+	<script src="variablescontainer.js" crossorigin="anonymous"></script>
+	<script src="oncetriggers.js" crossorigin="anonymous"></script>
+	<script src="runtimebehavior.js" crossorigin="anonymous"></script>
+	<script src="spriteruntimeobject.js" crossorigin="anonymous"></script>
+	<script src="events-tools\commontools.js" crossorigin="anonymous"></script>
+	<script src="events-tools\runtimescenetools.js" crossorigin="anonymous"></script>
+	<script src="events-tools\inputtools.js" crossorigin="anonymous"></script>
+	<script src="events-tools\objecttools.js" crossorigin="anonymous"></script>
+	<script src="events-tools\cameratools.js" crossorigin="anonymous"></script>
+	<script src="events-tools\soundtools.js" crossorigin="anonymous"></script>
+	<script src="events-tools\storagetools.js" crossorigin="anonymous"></script>
+	<script src="events-tools\stringtools.js" crossorigin="anonymous"></script>
+	<script src="events-tools\windowtools.js" crossorigin="anonymous"></script>
+	<script src="events-tools\networktools.js" crossorigin="anonymous"></script>
+	<script src="pixi-renderers\pixi.js" crossorigin="anonymous"></script>
+	<script src="pixi-renderers\pixi-filters-tools.js" crossorigin="anonymous"></script>
+	<script src="pixi-renderers\runtimegame-pixi-renderer.js" crossorigin="anonymous"></script>
+	<script src="pixi-renderers\runtimescene-pixi-renderer.js" crossorigin="anonymous"></script>
+	<script src="pixi-renderers\layer-pixi-renderer.js" crossorigin="anonymous"></script>
+	<script src="pixi-renderers\pixi-image-manager.js" crossorigin="anonymous"></script>
+	<script src="pixi-renderers\spriteruntimeobject-pixi-renderer.js" crossorigin="anonymous"></script>
+	<script src="pixi-renderers\loadingscreen-pixi-renderer.js" crossorigin="anonymous"></script>
+	<script src="howler-sound-manager\howler.min.js" crossorigin="anonymous"></script>
+	<script src="howler-sound-manager\howler-sound-manager.js" crossorigin="anonymous"></script>
+	<script src="fontfaceobserver-font-manager\fontfaceobserver.js" crossorigin="anonymous"></script>
+	<script src="fontfaceobserver-font-manager\fontfaceobserver-font-manager.js" crossorigin="anonymous"></script>
+	<script src="Extensions\PlatformBehavior\platformerobjectruntimebehavior.js" crossorigin="anonymous"></script>
+	<script src="Extensions\PlatformBehavior\platformruntimebehavior.js" crossorigin="anonymous"></script>
+	<script src="Extensions\TiledSpriteObject\tiledspriteruntimeobject-pixi-renderer.js" crossorigin="anonymous"></script>
+	<script src="Extensions\TiledSpriteObject\tiledspriteruntimeobject.js" crossorigin="anonymous"></script>
+	<script src="code0.js" crossorigin="anonymous"></script>
+	<script src="data.js" crossorigin="anonymous"></script>
 
-    .sharebox{
-    margin: auto;
-    width: 200px;
-    }
 
-    .buttonbox{
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
-    color: black;
-    text-align: center;
-    font-size: 16px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    cursor: pointer;
-    }
+</head>
+<body>
 
-    .apoie{
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
-    color: rgb(18, 143, 24);
-    text-align: center;
-    font-size: 16px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    cursor: pointer;
-    }
-
-    .buttonboxdiv{
-    padding: 15px 25px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.86);
-    }
-
-    </style>
-
- </head>
-
-  <body>
     
-    <h1 onclick="location.href='index.html'" type="button">
-      <img src="rstudio.png" alt="rstudio" height="70px" width="70px">Errando!
-      <div class="frase">É errando que se aprende...</div>
-      
-    </h1>
+	<script>
 
-    
+    (function() {
+        //Initialization
+        var game = new gdjs.RuntimeGame(gdjs.projectData, {});
 
-    <div>
-      <script async src="https://cse.google.com/cse.js?cx=000558570694120258873:1zo41beqdnx"></script>
-      <div class="gcse-search"></div>
-    </div>
+        //Create a renderer
+        game.getRenderer().createStandardCanvas(document.body);
 
-    <div class="buttonboxdiv">
-      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WCRZ6U8L73R7N&source=url">
-      <button class="apoie"><img src="green.png" alt="green" height="17px" width="30px"> Apoie! </button>
-      </a>
-      <button class="buttonbox" onclick="location.href='faq.html'" type="button"> Sugestões </button>
-      <button class="buttonbox" class="buttonbox" onclick="location.href='eng.html'" type="button"> English </button>
-    </div>
-    <div class="sharebox">
-      <!-- AddToAny BEGIN -->
-        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-        <a class="a2a_button_linkedin"></a>
-        <a class="a2a_button_facebook"></a>
-        <a class="a2a_button_whatsapp"></a>
-        <a class="a2a_button_twitter"></a>
-        </div>
-        <script async src="https://static.addtoany.com/menu/page.js"></script>
-        <!-- AddToAny END --></div>
+        //Bind keyboards/mouse/touch events
+        game.getRenderer().bindStandardEvents(game.getInputManager(), window, document);
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        //Load all assets and start the game
+        game.loadAllAssets(function() {
+            game.startGameLoop();
+        });
+    })();
 
-    <div class="about">
-      <h2>O que é esse site?</h2>
-      <p class="about">
-      Errar é algo comum quando estamos escrevendo códigos no R!<br>
-      Já achar solução na internet é um investimento em tempo que nem sempre da certo...<br>
-      Portanto, esse site é uma ferramenta de busca para programadores, acadêmicos e que usam R!<br>
-      <br>
-      Aqui vc vai direto ao ponto! Não precisa ficar mineirando informação no Google!<br>
-      <br>
-      Todos os resultados de pesquisa aqui são exclusivamente sobre a linguagem R!<br>
-      Assim quando você pesquisar sobre certa função, pacote ou erro, não irá aparecer<br>
-      resultados avulsos de outras linguagens ou de outros temas que não estão ligados a linguagem R.
-      <br>
-      </p>
-
-      <h2>Como usar?</h2>
-      <p class="about">
-      Basta escrever na barra de pesquisa o que você esta buscando.<br>
-      Você pode buscar por erros copiando direto do seu console do R,<br>
-      Pode procurar por como fazer certo tipo de gráfico,<br>
-      Como usar certa função, entre outras infinitas de possibilidades!
-      <br>
-      </p>
-
-      <h2>Quer ajudar nosso site a melhorar?</h2>
-      <p class="about">
-      Escreva como podemos melhorar!
-      </p>
-      <p class="about">
-      Esse site é uma iniciativa sem fins lucrativos!<br>
-      Ajude a manter o site em funcionamento fazendo uma doação!
-      </p>
-    
-      <img src="QR Code.png" alt="donate" height="90px" width="90px" onclick="location.href='index.html'" type="button">
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="WCRZ6U8L73R7N" />
-        <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Faça doações com o botão do PayPal" />
-        <img alt="" border="0" src="https://www.paypal.com/pt_BR/i/scr/pixel.gif" width="1" height="1" />
-        </form>
-    </div>
-
-    <div style="background-color: black; color: white; padding: 10px;"><p>By DataBase</p></div>
-
-
-  </body>
-
+	</script>
+</body>
 </html>
