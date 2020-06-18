@@ -22,7 +22,8 @@
             overflow: hidden;
         }
 
-        
+        @font-face{ font-family : "gdjs_font_Bimbo_JVE.ttf"; src : url('Bimbo_JVE.ttf') format('truetype'); }
+
 	</style>
     <!-- Libs and GDJS core files : -->
 		<script src="libs\jshashtable.js" crossorigin="anonymous"></script>
@@ -69,8 +70,12 @@
 	<script src="howler-sound-manager\howler-sound-manager.js" crossorigin="anonymous"></script>
 	<script src="fontfaceobserver-font-manager\fontfaceobserver.js" crossorigin="anonymous"></script>
 	<script src="fontfaceobserver-font-manager\fontfaceobserver-font-manager.js" crossorigin="anonymous"></script>
+	<script src="Extensions\AnchorBehavior\anchorruntimebehavior.js" crossorigin="anonymous"></script>
 	<script src="Extensions\PlatformBehavior\platformerobjectruntimebehavior.js" crossorigin="anonymous"></script>
 	<script src="Extensions\PlatformBehavior\platformruntimebehavior.js" crossorigin="anonymous"></script>
+	<script src="Extensions\SystemInfo\systeminfotools.js" crossorigin="anonymous"></script>
+	<script src="Extensions\TextObject\textruntimeobject-pixi-renderer.js" crossorigin="anonymous"></script>
+	<script src="Extensions\TextObject\textruntimeobject.js" crossorigin="anonymous"></script>
 	<script src="Extensions\TiledSpriteObject\tiledspriteruntimeobject-pixi-renderer.js" crossorigin="anonymous"></script>
 	<script src="Extensions\TiledSpriteObject\tiledspriteruntimeobject.js" crossorigin="anonymous"></script>
 	<script src="code0.js" crossorigin="anonymous"></script>
@@ -80,7 +85,7 @@
 </head>
 <body>
 
-    
+    <div style="font-family: 'gdjs_font_Bimbo_JVE.ttf'; color: black;">.</div>
 	<script>
 
     (function() {
